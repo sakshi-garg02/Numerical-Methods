@@ -1,0 +1,2089 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     67726,       2079]
+NotebookOptionsPosition[     62043,       2000]
+NotebookOutlinePosition[     62384,       2015]
+CellTagsIndexPosition[     62341,       2012]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Practical", " ", "6"}], "Title",
+  FontSlant->"Italic"], "\n", 
+ StyleBox[
+  RowBox[{"Aim", ":", 
+   RowBox[{
+   "Lagrange", " ", "Interpolation", " ", "and", " ", "Newton", " ", 
+    "Interpolation"}]}], "Title",
+  FontSlant->"Italic"]}], "Input",
+ CellChangeTimes->{{3.8907794701755667`*^9, 
+  3.8907794701795645`*^9}},ExpressionUUID->"3dc8aa7e-5db1-4132-b7fb-\
+8850d338cda5"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1.", " ", "Lagrange", " ", "Interpolation"}], 
+  "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.8907794986301165`*^9, 
+  3.8907795072629623`*^9}},ExpressionUUID->"d7ad97ed-5997-47ba-af40-\
+9ed4a292f789"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox["1", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"]}],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[
+     StyleBox[
+      RowBox[{
+       StyleBox[" ",
+        FontSize->14], " "}]], "ItemParagraph",
+     FontWeight->"Plain"],
+    FontSize->14]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   StyleBox["Given", "ItemParagraph",
+    FontWeight->"Plain"], " ", ",", 
+   StyleBox[" ", "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["0", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     StyleBox[
+      StyleBox["2", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["1", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     StyleBox[
+      StyleBox["3", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["3", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox["4", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[".", "ItemParagraph",
+        FontWeight->"Plain"]}]], 
+     StyleBox["  ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["Find", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["a", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["unique", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], "polynomial", " ", "of", " ", "a", " ", "degree", 
+     "  ", "two", " ", "or", " ", "less", " ", "which", " ", "fits", " ", 
+     "the", " ", "given", " ", 
+     RowBox[{"data", ".", 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[" ", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox["A", "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "lso"}]]}], " ", "find", " ", "the", " ", 
+     "value", " ", "of", " ", "f", 
+     RowBox[{"(", 
+      StyleBox[
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox["1", "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox["1", "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"]}]], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[")", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}]}]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]"
+ StyleBox[, "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907795335906963`*^9, 
+  3.890779704167178*^9}},ExpressionUUID->"8415f7b8-e0b3-41fe-910f-\
+b24932fba765"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"No", "=", "3"}], ";", 
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lagrange", "[", 
+    RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Product", "[", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Equal", "[", 
+        RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"x", "[", "n", "]"}], "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "-", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"sum", "+=", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"x", "[", "i", "]"}], "]"}], "*", 
+       RowBox[{"lagrange", "[", 
+        RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", "sum", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{"No", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"lagrange", "[", 
+   RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Product", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"Equal", "[", 
+       RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"y", "[", 
+          RowBox[{"[", "n", "]"}], "]"}], "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"sum", "+=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "*", 
+      RowBox[{"lagrange", "[", 
+       RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], "\n", 
+ RowBox[{"Expand", "[", "sum", "]"}], "\n", 
+ RowBox[{"sum", "/.", 
+  RowBox[{"x", "\[Rule]", "11"}]}]}], "Input",
+ CellChangeTimes->{{3.8907797068412304`*^9, 3.890779725529256*^9}},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"7c6ed96e-b4b0-4cda-8fca-f020d9d53b57"],
+
+Cell[BoxData["0"], "Print",
+ CellChangeTimes->{3.890779726436055*^9},
+ CellLabel->
+  "During evaluation of \
+In[101]:=",ExpressionUUID->"0849a18d-a5b9-4dcf-bdc0-092ecf7cb910"],
+
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{3.8907797264369926`*^9},
+ CellLabel->
+  "Out[107]=",ExpressionUUID->"05dbf3e4-045d-4f5f-b199-a794438b9ea3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907797264400606`*^9},
+ CellLabel->
+  "Out[108]=",ExpressionUUID->"edb1d15c-f0b0-43e8-a7da-22cfea32358f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "3", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{3.890779726445014*^9},
+ CellLabel->
+  "Out[109]=",ExpressionUUID->"eb9eda4a-0ddd-495d-bca0-e67ce05fe6ce"],
+
+Cell[BoxData["2.`"], "Output",
+ CellChangeTimes->{3.8907797264484005`*^9},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"ce21805e-1f04-4d04-a48f-47394b4d163b"],
+
+Cell[BoxData["2.`"], "Output",
+ CellChangeTimes->{3.8907797264514313`*^9},
+ CellLabel->
+  "Out[113]=",ExpressionUUID->"abea5d84-05ac-443e-a615-9f622fbbd3de"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox[
+     StyleBox[
+      StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"],
+     FontSize->14], 
+    StyleBox[
+     StyleBox[" ", "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"],
+     FontSize->14], 
+    StyleBox["2", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"]}], 
+   StyleBox[
+    StyleBox[
+     StyleBox[
+      RowBox[{
+       StyleBox[" ",
+        FontSize->14], " "}]], "ItemParagraph",
+     FontWeight->"Plain"],
+    FontSize->14]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   StyleBox["Given", "ItemParagraph",
+    FontWeight->"Plain"], " ", ",", 
+   StyleBox[" ", "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["0", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       StyleBox["-", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox[
+       StyleBox["2", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"]}]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["1", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       StyleBox["-", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox[
+       StyleBox["3", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"]}]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["3", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     RowBox[{
+      StyleBox[
+       StyleBox[
+        StyleBox["-", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox["4", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[".", "ItemParagraph",
+         FontWeight->"Plain"]}]]}], 
+     StyleBox["  ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["Find", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["a", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["unique", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], "polynomial", " ", "of", " ", "a", " ", "degree", 
+     "  ", "two", " ", "or", " ", "less", " ", "which", " ", "fits", " ", 
+     "the", " ", "given", " ", 
+     RowBox[{"data", ".", 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[" ", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox["A", "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "lso"}]]}], " ", "find", " ", "the", " ", 
+     "value", " ", "of", " ", "f", 
+     RowBox[{"(", 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox["1", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[")", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}]}]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]"
+ StyleBox[, "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907797379375353`*^9, 
+  3.890779771219718*^9}},ExpressionUUID->"66e10349-1c0d-4616-b854-\
+741ec87a2205"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"No", "=", "3"}], ";", 
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lagrange", "[", 
+    RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Product", "[", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Equal", "[", 
+        RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"x", "[", "n", "]"}], "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "-", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"sum", "+=", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"x", "[", "i", "]"}], "]"}], "*", 
+       RowBox[{"lagrange", "[", 
+        RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", "sum", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "3"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "4"}]}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{"No", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"lagrange", "[", 
+   RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Product", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"Equal", "[", 
+       RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"y", "[", 
+          RowBox[{"[", "n", "]"}], "]"}], "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"sum", "+=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "*", 
+      RowBox[{"lagrange", "[", 
+       RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], "\n", 
+ RowBox[{"Expand", "[", "sum", "]"}], "\n", 
+ RowBox[{"sum", "/.", 
+  RowBox[{"x", "\[Rule]", "1"}]}]}], "Input",
+ CellChangeTimes->{{3.8907797510377617`*^9, 3.8907797740535693`*^9}},
+ CellLabel->
+  "In[114]:=",ExpressionUUID->"938674ae-356f-426b-bbe6-4e40d4a879db"],
+
+Cell[BoxData["0"], "Print",
+ CellChangeTimes->{3.890779774980507*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"09c2ed10-035b-4e58-b6bc-57f2447f0d47"],
+
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{3.890779774982894*^9},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"78138019-3777-4923-8c79-ad2c8aac7046"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.890779774987541*^9},
+ CellLabel->
+  "Out[121]=",ExpressionUUID->"3bcc0a32-c674-4303-bd86-c22c7a893539"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "2"}], ",", 
+   RowBox[{"-", "3"}], ",", 
+   RowBox[{"-", "4"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8907797749905415`*^9},
+ CellLabel->
+  "Out[122]=",ExpressionUUID->"72aed2b3-ab10-4b79-bc55-23e3948ae64f"],
+
+Cell[BoxData[
+ RowBox[{"-", "2.`"}]], "Output",
+ CellChangeTimes->{3.8907797749925413`*^9},
+ CellLabel->
+  "Out[125]=",ExpressionUUID->"73b34d06-0267-4903-812b-bc510462efe2"],
+
+Cell[BoxData[
+ RowBox[{"-", "2.`"}]], "Output",
+ CellChangeTimes->{3.890779774994644*^9},
+ CellLabel->
+  "Out[126]=",ExpressionUUID->"6a4c8fa9-6d88-48d8-bcca-8ae5883f5762"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox[
+     StyleBox[
+      StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"],
+     FontSize->14], 
+    StyleBox[
+     StyleBox[" ", "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"],
+     FontSize->14], 
+    StyleBox["3", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"]}], 
+   StyleBox[
+    StyleBox[
+     StyleBox[
+      RowBox[{
+       StyleBox[" ",
+        FontSize->14], " "}]], "ItemParagraph",
+     FontWeight->"Plain"],
+    FontSize->14]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   StyleBox["Given", "ItemParagraph",
+    FontWeight->"Plain"], " ", ",", 
+   StyleBox[" ", "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["0", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox["33", "ItemParagraph",
+     FontWeight->"Plain"]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["1", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       StyleBox["-", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox["3", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[
+        StyleBox["4", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"]}]]}]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      StyleBox["f", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox["3", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[")", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["=", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      RowBox[{"64", 
+       StyleBox[".", "ItemParagraph",
+        FontWeight->"Plain"]}]], 
+     StyleBox["  ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["Find", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["a", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["unique", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontWeight->"Plain"], "polynomial", " ", "of", " ", "a", " ", "degree", 
+     "  ", "two", " ", "or", " ", "less", " ", "which", " ", "fits", " ", 
+     "the", " ", "given", " ", 
+     RowBox[{"data", ".", 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[" ", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox["A", "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "lso"}]]}], " ", "find", " ", "the", " ", 
+     "value", " ", "of", " ", "f", 
+     RowBox[{"(", 
+      StyleBox["10", "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[")", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907797899693255`*^9, 
+  3.890779808149522*^9}},ExpressionUUID->"047adb6a-0adc-4393-8764-\
+ce03436c6c84"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"No", "=", "3"}], ";", 
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lagrange", "[", 
+    RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Product", "[", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Equal", "[", 
+        RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"x", "[", "n", "]"}], "-", 
+          RowBox[{"x", "[", "k", "]"}]}], ")"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "-", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"sum", "+=", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"x", "[", "i", "]"}], "]"}], "*", 
+       RowBox[{"lagrange", "[", 
+        RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", "sum", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"sum", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "33"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "34"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "64"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{"No", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"lagrange", "[", 
+   RowBox[{"No_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Product", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"Equal", "[", 
+       RowBox[{"k", ",", "n"}], "]"}], ",", "1", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"y", "[", 
+          RowBox[{"[", "n", "]"}], "]"}], "-", 
+         RowBox[{"y", "[", 
+          RowBox[{"[", "k", "]"}], "]"}]}], ")"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "No"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", "No"}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"sum", "+=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "*", 
+      RowBox[{"lagrange", "[", 
+       RowBox[{"No", ",", "i"}], "]"}]}], ")"}]}]}], "]"}], "\n", 
+ RowBox[{"Expand", "[", "sum", "]"}], "\n", 
+ RowBox[{"sum", "/.", 
+  RowBox[{"x", "\[Rule]", "10"}]}]}], "Input",
+ CellChangeTimes->{{3.890779818736436*^9, 3.8907798348004093`*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"d8f3c8c7-e6d4-4e27-bce4-6f5df0d3d7b6"],
+
+Cell[BoxData["0"], "Print",
+ CellChangeTimes->{3.89077983727316*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"e32f01d2-ecd3-4c99-ae7a-aca17663af7a"],
+
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{3.8907798372764616`*^9},
+ CellLabel->
+  "Out[133]=",ExpressionUUID->"b1017d31-c645-4f1c-9a5a-3d03e9c5f458"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907798372784758`*^9},
+ CellLabel->
+  "Out[134]=",ExpressionUUID->"a91cbaea-2e99-4b46-ad9f-a1d17711fd6e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"33", ",", 
+   RowBox[{"-", "34"}], ",", "64"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907798372813883`*^9},
+ CellLabel->
+  "Out[135]=",ExpressionUUID->"f9a16f02-e811-4e63-a817-61ff65a07fc2"],
+
+Cell[BoxData["33.`"], "Output",
+ CellChangeTimes->{3.8907798372850013`*^9},
+ CellLabel->
+  "Out[138]=",ExpressionUUID->"8548081d-608c-4991-a04f-e954f47a0695"],
+
+Cell[BoxData["33.`"], "Output",
+ CellChangeTimes->{3.890779837286994*^9},
+ CellLabel->
+  "Out[139]=",ExpressionUUID->"550e3fc8-09d9-4add-814c-d379cc4cb30f"]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"2.", " ", "Newton", " ", "Interpolation"}], 
+  "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.8907798606611066`*^9, 
+  3.890779866255436*^9}},ExpressionUUID->"7b6ba081-cc9e-4e2f-948b-\
+a435ec3aa77c"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox["1", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"]}],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[
+     StyleBox[
+      RowBox[{
+       StyleBox[" ",
+        FontSize->14], " "}]], "ItemParagraph",
+     FontWeight->"Plain"],
+    FontSize->14]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox["Given", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{" ", 
+      StyleBox[
+       StyleBox[" ", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]], 
+    StyleBox[
+     RowBox[{
+      StyleBox["po", "ItemParagraph",
+       FontWeight->"Plain"], "in", 
+      StyleBox[
+       StyleBox["t", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox["s", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]]}], 
+   StyleBox[
+    StyleBox[
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    StyleBox["{", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox["3", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["293", "ItemParagraph",
+      FontWeight->"Plain"]}], 
+    StyleBox["}", "ItemParagraph",
+     FontWeight->"Plain"]}], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    RowBox[{"{", 
+     RowBox[{"5", ",", "508"}], "}"}], "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[
+    RowBox[{"{", 
+     RowBox[{"6", ",", "585"}], "}"}], "ItemParagraph",
+    FontWeight->"Plain"], 
+   StyleBox[",", "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       StyleBox["{", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[
+        RowBox[{"9", ",", "764"}], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox["}", "ItemParagraph",
+        FontWeight->"Plain"]}], "  ", 
+      StyleBox[
+       StyleBox[
+        StyleBox[".", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[" ", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "Calculate"}], " ", "the", " ", "difference", 
+     " ", "and", " ", "interpolate", " ", "at", " ", "x"}], "=", "0.1"}]}], 
+  "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.890779895966546*^9, 3.890779933218422*^9}, {
+  3.890779967567416*^9, 
+  3.890780036005866*^9}},ExpressionUUID->"12446c7d-e0d1-4ded-9d32-\
+aabd17aafbc7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "293"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "508"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6", ",", "585"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"9", ",", "764"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{"n", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"dd", "[", "k_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "/", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"Equal", "[", 
+           RowBox[{"j", ",", "i"}], "]"}], ",", "1", ",", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"y", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "-", 
+            RowBox[{"y", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", "k"}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "k"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"p", "[", "x_", "]"}], "=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"dd", "[", "i", "]"}], "*", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"i", "\[LessEqual]", "j"}], ",", "1", ",", 
+          RowBox[{"x", "-", 
+           RowBox[{"y", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"p", "[", "x", "]"}], "]"}], "\n", 
+ RowBox[{"Evaluate", "[", 
+  RowBox[{"p", "[", "2.5", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8907799815458374`*^9, 3.8907799815532627`*^9}},
+ CellLabel->
+  "In[140]:=",ExpressionUUID->"b142b24e-8120-486a-8f08-dc0ae2f9bc73"],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.890780041672092*^9},
+ CellLabel->
+  "Out[141]=",ExpressionUUID->"03bd34f1-e89f-422c-be02-b26ce35a6c96"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "5", ",", "6", ",", "9"}], "}"}]], "Output",
+ CellChangeTimes->{3.890780041675902*^9},
+ CellLabel->
+  "Out[142]=",ExpressionUUID->"b1eb45c3-dc57-4523-bc5b-d171be76959f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"293", ",", "508", ",", "585", ",", "764"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907800416789346`*^9},
+ CellLabel->
+  "Out[143]=",ExpressionUUID->"a0cad5d7-6734-42b1-a0fd-1cb9a15ca7ab"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","write",
+   "\"Tag \\!\\(\\*RowBox[{\\\"Real\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"-\\\", \\\"0.78125`\\\"}], \\\
+\")\\\"}], \\\"[\\\", \\\"x_\\\", \\\"]\\\"}]\\) is Protected.\"",2,145,17,
+   19571503808121886810,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.890780041682547*^9},
+ CellLabel->
+  "During evaluation of \
+In[140]:=",ExpressionUUID->"a171cce3-876e-4a19-99ab-874d152a4d5e"],
+
+Cell[BoxData[
+ RowBox[{"-", "269.5`"}]], "Output",
+ CellChangeTimes->{3.8907800417119527`*^9},
+ CellLabel->
+  "Out[145]=",ExpressionUUID->"56453f43-8d1a-49ba-b484-fd4120240a05"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "0.`", "]"}]], "Output",
+ CellChangeTimes->{3.890780041713718*^9},
+ CellLabel->
+  "Out[146]=",ExpressionUUID->"238e3889-cadb-4b6f-a433-398ea5505981"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "2.5`", "]"}]], "Output",
+ CellChangeTimes->{3.890780041715722*^9},
+ CellLabel->
+  "Out[147]=",ExpressionUUID->"40b38028-7d3e-48e3-bfe0-654186366278"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["2", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox["Given", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{" ", 
+      StyleBox[
+       StyleBox[" ", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]], 
+    StyleBox[
+     RowBox[{
+      StyleBox["po", "ItemParagraph",
+       FontWeight->"Plain"], "in", 
+      StyleBox[
+       StyleBox["t", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox["s", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]]}], 
+   StyleBox[
+    StyleBox[
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       StyleBox["{", "ItemParagraph",
+        FontWeight->"Plain"], 
+       RowBox[{
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"1", ",", "29"}], "}"}], "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"2", ",", "50"}], "}"}], "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[
+         RowBox[{"{", 
+          RowBox[{"3", ",", "55"}], "}"}], "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox["{", "ItemParagraph",
+          FontWeight->"Plain"], 
+         StyleBox[
+          RowBox[{"4", ",", "76"}], "ItemParagraph",
+          FontWeight->"Plain"], 
+         StyleBox["}", "ItemParagraph",
+          FontWeight->"Plain"]}]}], 
+       StyleBox["}", "ItemParagraph",
+        FontWeight->"Plain"]}], " ", 
+      StyleBox[
+       StyleBox[
+        StyleBox[".", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[" ", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "Calculate"}], " ", "the", " ", "difference", 
+     " ", "and", " ", "interpolate", " ", "at", " ", "x"}], "=", "1.5"}]}], 
+  "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.890780072650138*^9, 
+  3.8907801055963717`*^9}},ExpressionUUID->"01eaf838-ec0a-4b1e-9805-\
+d036dcad1d73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "29"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "50"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "55"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "76"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{"n", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"dd", "[", "k_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "/", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"Equal", "[", 
+           RowBox[{"j", ",", "i"}], "]"}], ",", "1", ",", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"y", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "-", 
+            RowBox[{"y", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", "k"}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "k"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"p", "[", "x_", "]"}], "=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"dd", "[", "i", "]"}], "*", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"i", "\[LessEqual]", "j"}], ",", "1", ",", 
+          RowBox[{"x", "-", 
+           RowBox[{"y", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"p", "[", "x", "]"}], "]"}], "\n", 
+ RowBox[{"Evaluate", "[", 
+  RowBox[{"p", "[", "1.5", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.890780101101487*^9, 3.890780101111503*^9}},
+ CellLabel->
+  "In[148]:=",ExpressionUUID->"455d950c-b6d8-476a-a9e6-7efc4cb54e01"],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.8907801104017105`*^9},
+ CellLabel->
+  "Out[149]=",ExpressionUUID->"a0852c47-5f7d-401a-9957-dbb5fe1f686c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907801104051323`*^9},
+ CellLabel->
+  "Out[150]=",ExpressionUUID->"41fd22e8-dfe3-47fa-9639-5d925b94b387"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"29", ",", "50", ",", "55", ",", "76"}], "}"}]], "Output",
+ CellChangeTimes->{3.890780110407113*^9},
+ CellLabel->
+  "Out[151]=",ExpressionUUID->"3ba4f37a-a409-48c9-a917-cf8beb6cdebe"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","write",
+   "\"Tag \\!\\(\\*RowBox[{\\\"Real\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"-\\\", \\\"0.78125`\\\"}], \\\
+\")\\\"}], \\\"[\\\", \\\"x_\\\", \\\"]\\\"}]\\) is Protected.\"",2,153,18,
+   19571503808121886810,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8907801104101543`*^9},
+ CellLabel->
+  "During evaluation of \
+In[148]:=",ExpressionUUID->"be9b01f9-dc9a-496e-99a9-9b72639f9d89"],
+
+Cell[BoxData[
+ RowBox[{"-", "40.`"}]], "Output",
+ CellChangeTimes->{3.8907801104323*^9},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"2ed713ff-13c5-4b2c-bce5-41cefade3f3d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "0.`", "]"}]], "Output",
+ CellChangeTimes->{3.8907801104343157`*^9},
+ CellLabel->
+  "Out[154]=",ExpressionUUID->"18a802da-2663-4004-a797-e172ccd6685d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "1.5`", "]"}]], "Output",
+ CellChangeTimes->{3.890780110437625*^9},
+ CellLabel->
+  "Out[155]=",ExpressionUUID->"1315ca97-1b49-46b8-9cdc-83ae3ccb063b"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["3", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox["Given", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{" ", 
+      StyleBox[
+       StyleBox[" ", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]], 
+    StyleBox[
+     RowBox[{
+      StyleBox["po", "ItemParagraph",
+       FontWeight->"Plain"], "in", 
+      StyleBox[
+       StyleBox["t", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox["s", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]]}], 
+   StyleBox[
+    StyleBox[
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       StyleBox["{", "ItemParagraph",
+        FontWeight->"Plain"], 
+       RowBox[{
+        RowBox[{
+         StyleBox["{", "ItemParagraph",
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox[
+           StyleBox[
+            StyleBox[
+             StyleBox[
+              StyleBox[
+               StyleBox[
+                StyleBox[
+                 StyleBox["1", "ItemParagraph",
+                  FontWeight->"Plain"], "ItemParagraph",
+                 FontWeight->"Plain"], "ItemParagraph",
+                FontWeight->"Plain"], "ItemParagraph",
+               FontWeight->"Plain"], "ItemParagraph",
+              FontWeight->"Plain"], "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], 
+          StyleBox[",", "ItemParagraph",
+           FontWeight->"Plain"], "9"}], 
+         StyleBox["}", "ItemParagraph",
+          FontWeight->"Plain"]}], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox["{", "ItemParagraph",
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["2", "ItemParagraph",
+           FontWeight->"Plain"], 
+          StyleBox[",", "ItemParagraph",
+           FontWeight->"Plain"], "0"}], 
+         StyleBox["}", "ItemParagraph",
+          FontWeight->"Plain"]}], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox["{", "ItemParagraph",
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["3", "ItemParagraph",
+           FontWeight->"Plain"], 
+          StyleBox[",", "ItemParagraph",
+           FontWeight->"Plain"], "5"}], 
+         StyleBox["}", "ItemParagraph",
+          FontWeight->"Plain"]}], 
+        StyleBox[",", "ItemParagraph",
+         FontWeight->"Plain"], 
+        RowBox[{
+         StyleBox["{", "ItemParagraph",
+          FontWeight->"Plain"], 
+         RowBox[{
+          StyleBox["4", "ItemParagraph",
+           FontWeight->"Plain"], 
+          StyleBox[",", "ItemParagraph",
+           FontWeight->"Plain"], "7"}], 
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox[
+             StyleBox[
+              StyleBox[
+               StyleBox[
+                StyleBox["}", "ItemParagraph",
+                 FontWeight->"Plain"], "ItemParagraph",
+                FontWeight->"Plain"], "ItemParagraph",
+               FontWeight->"Plain"], "ItemParagraph",
+              FontWeight->"Plain"], "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"]}]}], 
+       StyleBox["}", "ItemParagraph",
+        FontWeight->"Plain"]}], " ", 
+      StyleBox[
+       StyleBox[
+        StyleBox[".", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[" ", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "Calculate"}], " ", "the", " ", "difference", 
+     " ", "and", " ", "interpolate", " ", "at", " ", "x"}], "=", "1.5"}], ",",
+    "0.6"}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.890780124481877*^9, 
+  3.8907801570294375`*^9}},ExpressionUUID->"3e8c74e8-fc3e-4703-ad9e-\
+e0a2445a0195"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"points", "=", 
+   RowBox[{
+    StyleBox["{", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     RowBox[{
+      StyleBox["{", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox[
+             StyleBox[
+              StyleBox["1", "ItemParagraph",
+               FontWeight->"Plain"], "ItemParagraph",
+              FontWeight->"Plain"], "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[",", "ItemParagraph",
+        FontWeight->"Plain"], "9"}], 
+      StyleBox["}", "ItemParagraph",
+       FontWeight->"Plain"]}], 
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["{", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox["2", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[",", "ItemParagraph",
+        FontWeight->"Plain"], "0"}], 
+      StyleBox["}", "ItemParagraph",
+       FontWeight->"Plain"]}], 
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["{", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox["3", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[",", "ItemParagraph",
+        FontWeight->"Plain"], "5"}], 
+      StyleBox["}", "ItemParagraph",
+       FontWeight->"Plain"]}], 
+     StyleBox[",", "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["{", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox["4", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[",", "ItemParagraph",
+        FontWeight->"Plain"], "7"}], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox[
+             StyleBox["}", "ItemParagraph",
+              FontWeight->"Plain"], "ItemParagraph",
+             FontWeight->"Plain"], "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}], 
+    StyleBox["}", "ItemParagraph",
+     FontWeight->"Plain"]}]}], ";"}], "\n", 
+ RowBox[{"n", "=", 
+  RowBox[{"Length", "[", "points", "]"}]}], "\n", 
+ RowBox[{"y", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "\n", 
+ RowBox[{"f", "=", 
+  RowBox[{"points", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"dd", "[", "k_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "/", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"Equal", "[", 
+           RowBox[{"j", ",", "i"}], "]"}], ",", "1", ",", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"y", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "-", 
+            RowBox[{"y", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", "k"}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "k"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"p", "[", "x_", "]"}], "=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"dd", "[", "i", "]"}], "*", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"i", "\[LessEqual]", "j"}], ",", "1", ",", 
+          RowBox[{"x", "-", 
+           RowBox[{"y", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], "\n", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"p", "[", "x", "]"}], "]"}], "\n", 
+ RowBox[{"Evaluate", "[", 
+  RowBox[{"p", "[", "1.5", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Evaluate", "[", 
+  RowBox[{"p", "[", "0.6", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.890780170453226*^9, 3.8907801835604763`*^9}},
+ CellLabel->
+  "In[156]:=",ExpressionUUID->"7900854d-640c-4937-bae7-c3b0af63bf1f"],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.8907801845050135`*^9},
+ CellLabel->
+  "Out[157]=",ExpressionUUID->"600d60bf-09a0-4c61-8d77-3cb70c53d2bb"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{3.890780184509386*^9},
+ CellLabel->
+  "Out[158]=",ExpressionUUID->"2765b053-252b-4800-83ec-b093f55434ce"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"9", ",", "0", ",", "5", ",", "7"}], "}"}]], "Output",
+ CellChangeTimes->{3.8907801845205765`*^9},
+ CellLabel->
+  "Out[159]=",ExpressionUUID->"883ac9e7-344d-4c2c-815b-f41d5bec478c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","write",
+   "\"Tag \\!\\(\\*RowBox[{\\\"Real\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"-\\\", \\\"0.78125`\\\"}], \\\
+\")\\\"}], \\\"[\\\", \\\"x_\\\", \\\"]\\\"}]\\) is Protected.\"",2,161,19,
+   19571503808121886810,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.890780184527692*^9},
+ CellLabel->
+  "During evaluation of \
+In[156]:=",ExpressionUUID->"47d10141-39e6-473c-9765-f938101905dc"],
+
+Cell[BoxData["49.`"], "Output",
+ CellChangeTimes->{3.890780184549699*^9},
+ CellLabel->
+  "Out[161]=",ExpressionUUID->"abd46746-eb85-49ca-8d37-0f4560607b31"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "0.`", "]"}]], "Output",
+ CellChangeTimes->{3.890780184552808*^9},
+ CellLabel->
+  "Out[162]=",ExpressionUUID->"af9b1b9e-31b0-4b5c-ac47-b12fe3957ab3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "1.5`", "]"}]], "Output",
+ CellChangeTimes->{3.8907801845547085`*^9},
+ CellLabel->
+  "Out[163]=",ExpressionUUID->"25655436-f6a2-4f2f-9041-374bb04bc560"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"-", "0.78125`"}], ")"}], "[", "0.6`", "]"}]], "Output",
+ CellChangeTimes->{3.890780184557708*^9},
+ CellLabel->
+  "Out[164]=",ExpressionUUID->"b4325adf-0747-43c2-a3c2-bc8650100014"]
+}, Open  ]]
+},
+WindowSize->{638, 700},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 415, 12, 250, "Input",ExpressionUUID->"3dc8aa7e-5db1-4132-b7fb-8850d338cda5"],
+Cell[976, 34, 242, 6, 37, "Input",ExpressionUUID->"d7ad97ed-5997-47ba-af40-9ed4a292f789"],
+Cell[1221, 42, 7016, 222, 129, "Input",ExpressionUUID->"8415f7b8-e0b3-41fe-910f-b24932fba765"],
+Cell[CellGroupData[{
+Cell[8262, 268, 3131, 99, 295, "Input",ExpressionUUID->"7c6ed96e-b4b0-4cda-8fca-f020d9d53b57"],
+Cell[11396, 369, 175, 4, 22, "Print",ExpressionUUID->"0849a18d-a5b9-4dcf-bdc0-092ecf7cb910"],
+Cell[11574, 375, 155, 3, 32, "Output",ExpressionUUID->"05dbf3e4-045d-4f5f-b199-a794438b9ea3"],
+Cell[11732, 380, 210, 5, 32, "Output",ExpressionUUID->"edb1d15c-f0b0-43e8-a7da-22cfea32358f"],
+Cell[11945, 387, 208, 5, 32, "Output",ExpressionUUID->"eb9eda4a-0ddd-495d-bca0-e67ce05fe6ce"],
+Cell[12156, 394, 157, 3, 32, "Output",ExpressionUUID->"ce21805e-1f04-4d04-a48f-47394b4d163b"],
+Cell[12316, 399, 157, 3, 32, "Output",ExpressionUUID->"abea5d84-05ac-443e-a615-9f622fbbd3de"]
+}, Open  ]],
+Cell[12488, 405, 7325, 234, 129, "Input",ExpressionUUID->"66e10349-1c0d-4616-b854-741ec87a2205"],
+Cell[CellGroupData[{
+Cell[19838, 643, 3201, 102, 295, "Input",ExpressionUUID->"938674ae-356f-426b-bbe6-4e40d4a879db"],
+Cell[23042, 747, 175, 4, 22, "Print",ExpressionUUID->"09c2ed10-035b-4e58-b6bc-57f2447f0d47"],
+Cell[23220, 753, 153, 3, 32, "Output",ExpressionUUID->"78138019-3777-4923-8c79-ad2c8aac7046"],
+Cell[23376, 758, 208, 5, 32, "Output",ExpressionUUID->"3bcc0a32-c674-4303-bd86-c22c7a893539"],
+Cell[23587, 765, 267, 8, 32, "Output",ExpressionUUID->"72aed2b3-ab10-4b79-bc55-23e3948ae64f"],
+Cell[23857, 775, 174, 4, 32, "Output",ExpressionUUID->"73b34d06-0267-4903-812b-bc510462efe2"],
+Cell[24034, 781, 172, 4, 32, "Output",ExpressionUUID->"6a4c8fa9-6d88-48d8-bcca-8ae5883f5762"]
+}, Open  ]],
+Cell[24221, 788, 6410, 206, 105, "Input",ExpressionUUID->"047adb6a-0adc-4393-8764-ce03436c6c84"],
+Cell[CellGroupData[{
+Cell[30656, 998, 3157, 100, 295, "Input",ExpressionUUID->"d8f3c8c7-e6d4-4e27-bce4-6f5df0d3d7b6"],
+Cell[33816, 1100, 174, 4, 22, "Print",ExpressionUUID->"e32f01d2-ecd3-4c99-ae7a-aca17663af7a"],
+Cell[33993, 1106, 155, 3, 32, "Output",ExpressionUUID->"b1017d31-c645-4f1c-9a5a-3d03e9c5f458"],
+Cell[34151, 1111, 210, 5, 32, "Output",ExpressionUUID->"a91cbaea-2e99-4b46-ad9f-a1d17711fd6e"],
+Cell[34364, 1118, 232, 6, 32, "Output",ExpressionUUID->"f9a16f02-e811-4e63-a817-61ff65a07fc2"],
+Cell[34599, 1126, 158, 3, 32, "Output",ExpressionUUID->"8548081d-608c-4991-a04f-e954f47a0695"],
+Cell[34760, 1131, 156, 3, 32, "Output",ExpressionUUID->"550e3fc8-09d9-4add-814c-d379cc4cb30f"]
+}, Open  ]],
+Cell[34931, 1137, 238, 6, 37, "Input",ExpressionUUID->"7b6ba081-cc9e-4e2f-948b-a435ec3aa77c"],
+Cell[35172, 1145, 3480, 116, 81, "Input",ExpressionUUID->"12446c7d-e0d1-4ded-9d32-aabd17aafbc7"],
+Cell[CellGroupData[{
+Cell[38677, 1265, 2393, 73, 219, "Input",ExpressionUUID->"b142b24e-8120-486a-8f08-dc0ae2f9bc73"],
+Cell[41073, 1340, 153, 3, 32, "Output",ExpressionUUID->"03bd34f1-e89f-422c-be02-b26ce35a6c96"],
+Cell[41229, 1345, 218, 5, 32, "Output",ExpressionUUID->"b1eb45c3-dc57-4523-bc5b-d171be76959f"],
+Cell[41450, 1352, 228, 5, 32, "Output",ExpressionUUID->"a0cad5d7-6734-42b1-a0fd-1cb9a15ca7ab"],
+Cell[41681, 1359, 473, 11, 23, "Message",ExpressionUUID->"a171cce3-876e-4a19-99ab-874d152a4d5e"],
+Cell[42157, 1372, 177, 4, 32, "Output",ExpressionUUID->"56453f43-8d1a-49ba-b484-fd4120240a05"],
+Cell[42337, 1378, 231, 6, 32, "Output",ExpressionUUID->"238e3889-cadb-4b6f-a433-398ea5505981"],
+Cell[42571, 1386, 232, 6, 32, "Output",ExpressionUUID->"40b38028-7d3e-48e3-bfe0-654186366278"]
+}, Open  ]],
+Cell[42818, 1395, 3266, 105, 105, "Input",ExpressionUUID->"01eaf838-ec0a-4b1e-9805-d036dcad1d73"],
+Cell[CellGroupData[{
+Cell[46109, 1504, 2385, 73, 219, "Input",ExpressionUUID->"455d950c-b6d8-476a-a9e6-7efc4cb54e01"],
+Cell[48497, 1579, 155, 3, 32, "Output",ExpressionUUID->"a0852c47-5f7d-401a-9957-dbb5fe1f686c"],
+Cell[48655, 1584, 220, 5, 32, "Output",ExpressionUUID->"41fd22e8-dfe3-47fa-9639-5d925b94b387"],
+Cell[48878, 1591, 222, 5, 32, "Output",ExpressionUUID->"3ba4f37a-a409-48c9-a917-cf8beb6cdebe"],
+Cell[49103, 1598, 475, 11, 23, "Message",ExpressionUUID->"be9b01f9-dc9a-496e-99a9-9b72639f9d89"],
+Cell[49581, 1611, 171, 4, 32, "Output",ExpressionUUID->"2ed713ff-13c5-4b2c-bce5-41cefade3f3d"],
+Cell[49755, 1617, 233, 6, 32, "Output",ExpressionUUID->"18a802da-2663-4004-a797-e172ccd6685d"],
+Cell[49991, 1625, 232, 6, 32, "Output",ExpressionUUID->"1315ca97-1b49-46b8-9cdc-83ae3ccb063b"]
+}, Open  ]],
+Cell[50238, 1634, 5048, 153, 105, "Input",ExpressionUUID->"3e8c74e8-fc3e-4703-ad9e-e0a2445a0195"],
+Cell[CellGroupData[{
+Cell[55311, 1791, 4773, 145, 238, "Input",ExpressionUUID->"7900854d-640c-4937-bae7-c3b0af63bf1f"],
+Cell[60087, 1938, 155, 3, 32, "Output",ExpressionUUID->"600d60bf-09a0-4c61-8d77-3cb70c53d2bb"],
+Cell[60245, 1943, 218, 5, 32, "Output",ExpressionUUID->"2765b053-252b-4800-83ec-b093f55434ce"],
+Cell[60466, 1950, 220, 5, 32, "Output",ExpressionUUID->"883ac9e7-344d-4c2c-815b-f41d5bec478c"],
+Cell[60689, 1957, 473, 11, 23, "Message",ExpressionUUID->"47d10141-39e6-473c-9765-f938101905dc"],
+Cell[61165, 1970, 156, 3, 32, "Output",ExpressionUUID->"abd46746-eb85-49ca-8d37-0f4560607b31"],
+Cell[61324, 1975, 231, 6, 32, "Output",ExpressionUUID->"af9b1b9e-31b0-4b5c-ac47-b12fe3957ab3"],
+Cell[61558, 1983, 234, 6, 32, "Output",ExpressionUUID->"25655436-f6a2-4f2f-9041-374bb04bc560"],
+Cell[61795, 1991, 232, 6, 65, "Output",ExpressionUUID->"b4325adf-0747-43c2-a3c2-bc8650100014"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

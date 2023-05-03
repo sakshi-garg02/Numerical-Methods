@@ -1,0 +1,822 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24959,        812]
+NotebookOptionsPosition[     22575,        767]
+NotebookOutlinePosition[     22916,        782]
+CellTagsIndexPosition[     22873,        779]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Practical", " ", "7"}], "Title",
+  FontSlant->"Italic"], "\n", 
+ StyleBox[
+  RowBox[{"Aim", ":", 
+   RowBox[{"Trapezoidal", " ", "and", " ", 
+    RowBox[{"Simpson", "'"}], "s", " ", "Rule"}]}], "Title",
+  FontSlant->"Italic"]}], "Input",
+ CellChangeTimes->{{3.8907802751481895`*^9, 
+  3.890780275152597*^9}},ExpressionUUID->"5391f8f9-4846-4553-9a35-\
+b13bf6ab26f0"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"1.", " ", "Trapezoidal", " ", "Rule"}], "Subsubsection"]], "Input",
+ CellChangeTimes->{{3.8907802916514454`*^9, 
+  3.890780299586378*^9}},ExpressionUUID->"7677d861-7683-4eb2-9d54-\
+f73c109ad53e"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[" ", "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox["1", "ItemParagraph"], "ItemParagraph",
+      FontSize->14,
+      FontWeight->"Plain"]}],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[
+     StyleBox[
+      RowBox[{
+       StyleBox[" ",
+        FontSize->14], " "}]], "ItemParagraph",
+     FontWeight->"Plain"],
+    FontSize->14]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Use", " ", "trapezoidal", " ", "rule", " ", "to", "  ", "approx", 
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox["1", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      StyleBox["/", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox[
+       StyleBox["(", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox[
+        StyleBox["1", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[
+        StyleBox["+", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox[
+        StyleBox["x", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"]}], 
+      StyleBox[
+       StyleBox[")", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]}]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "2"}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907803202328033`*^9, 
+  3.8907803948146152`*^9}},ExpressionUUID->"2d3a20c1-3f7c-4674-93ea-\
+53bbcf99ec13"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"trapezoidalRule1", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"b", "-", "a"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"f", "[", "a", "]"}], "+", 
+        RowBox[{"f", "[", "b", "]"}]}], ")"}], "/", "2"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"trapezoidalRule1", "[", 
+   RowBox[{"0", ",", "2", ",", "f1"}], "]"}], "//", "N"}]}], "Input",
+ CellChangeTimes->{{3.890780363440057*^9, 3.890780368679906*^9}},
+ CellLabel->
+  "In[165]:=",ExpressionUUID->"ab00575e-ce40-46b4-9ddf-1f081b51a7a1"],
+
+Cell[BoxData["1.3333333333333333`"], "Output",
+ CellChangeTimes->{3.890780403319153*^9},
+ CellLabel->
+  "Out[167]=",ExpressionUUID->"33d243ef-ee06-483b-9b38-821e0914d7ff"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["2", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Use", " ", "trapezoidal", " ", "rule", " ", "to", "  ", "approx", 
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox["2", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["/", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(", 
+       RowBox[{"9", "+", 
+        RowBox[{"6", "x"}]}], ")"}], "ItemParagraph",
+      FontWeight->"Plain"]}]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", 
+      StyleBox[
+       StyleBox[
+        StyleBox["1", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.890780461763241*^9, 
+  3.8907804782570777`*^9}},ExpressionUUID->"3b904d91-7037-468b-8679-\
+ad86b651a915"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"trapezoidalRule1", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"b", "-", "a"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"f", "[", "a", "]"}], "+", 
+        RowBox[{"f", "[", "b", "]"}]}], ")"}], "/", "2"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   RowBox[{"2", "/", 
+    RowBox[{"(", 
+     RowBox[{"9", "+", 
+      RowBox[{"6", "x"}]}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"trapezoidalRule1", "[", 
+   RowBox[{"0", ",", "1", ",", "f1"}], "]"}], "//", "N"}]}], "Input",
+ CellChangeTimes->{{3.8907804470438128`*^9, 3.8907804717044935`*^9}},
+ CellLabel->
+  "In[168]:=",ExpressionUUID->"3a769a17-df2b-49d0-864a-cbe733c9ef51"],
+
+Cell[BoxData["0.17777777777777778`"], "Output",
+ CellChangeTimes->{3.890780472673711*^9},
+ CellLabel->
+  "Out[170]=",ExpressionUUID->"24bc3d93-b28b-462f-bcd9-1c21f4b8346a"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["3", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Use", " ", "trapezoidal", " ", "rule", " ", "to", "  ", "approx", 
+    StyleBox[" ", "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       StyleBox[
+        StyleBox["1", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["/", "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox["3", "ItemParagraph",
+            FontWeight->"Plain"], "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox["+", "ItemParagraph",
+        FontWeight->"Plain"], 
+       RowBox[{
+        StyleBox["6", "ItemParagraph",
+         FontWeight->"Plain"], 
+        StyleBox["x", "ItemParagraph",
+         FontWeight->"Plain"]}]}], 
+      StyleBox[")", "ItemParagraph",
+       FontWeight->"Plain"]}]}]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", 
+      StyleBox[
+       StyleBox[
+        StyleBox["9", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907805114349794`*^9, 
+  3.890780536783499*^9}},ExpressionUUID->"6b35b67b-34aa-452a-bd76-\
+74e56aa32156"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"trapezoidalRule1", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"b", "-", "a"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"f", "[", "a", "]"}], "+", 
+        RowBox[{"f", "[", "b", "]"}]}], ")"}], "/", "2"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   StyleBox[
+    RowBox[{
+     StyleBox[
+      StyleBox[
+       StyleBox["1", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox["3", "ItemParagraph",
+           FontWeight->"Plain"], "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "+", 
+       RowBox[{"6", "x"}]}], ")"}]}], "ItemParagraph",
+    FontWeight->"Plain"]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"trapezoidalRule1", "[", 
+   RowBox[{"0", ",", "9", ",", "f1"}], "]"}], "//", "N"}]}], "Input",
+ CellChangeTimes->{
+  3.890780487608551*^9, {3.8907805465294685`*^9, 3.8907805608426094`*^9}},
+ NumberMarks->False,
+ CellLabel->
+  "In[172]:=",ExpressionUUID->"e826ad8c-3390-4d5e-816f-c7c08266b17b"],
+
+Cell[BoxData["1.5789473684210527`"], "Output",
+ CellChangeTimes->{3.890780561790616*^9},
+ CellLabel->
+  "Out[174]=",ExpressionUUID->"471e8600-8c98-43b7-adca-0569514f4688"]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"2.", " ", 
+   RowBox[{"Simpson", "'"}], "s", " ", "Rule"}], "Subsubsection",
+  FontWeight->"Bold"]], "Input",
+ CellChangeTimes->{
+  3.8907804985770617`*^9, {3.8907805735773907`*^9, 
+   3.8907805912791224`*^9}},ExpressionUUID->"d954affa-bbf5-4572-8f94-\
+f527cc71c8af"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["1", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Use", 
+    StyleBox[
+     RowBox[{" ", 
+      StyleBox[
+       StyleBox[
+        StyleBox[" ", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["Si", "ItemParagraph",
+        FontWeight->"Plain"], "mp", 
+       StyleBox[
+        StyleBox["s", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "on"}]], 
+     StyleBox[
+      StyleBox["'", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"]}], 
+    StyleBox[
+     StyleBox[
+      StyleBox["s", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       StyleBox[
+        StyleBox[" ", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], " "}]], "rule", " ", "to", "  ", "approx", 
+    StyleBox[
+     StyleBox[
+      RowBox[{" ", 
+       StyleBox[" ", "ItemParagraph",
+        FontWeight->"Plain"]}]], "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox["1", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["/", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        RowBox[{"x", "^", "2"}]}], ")"}], "ItemParagraph",
+      FontWeight->"Plain"]}]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", 
+      StyleBox[
+       StyleBox[
+        StyleBox["1", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907806253575335`*^9, 
+  3.89078071474794*^9}},ExpressionUUID->"afbda1ab-f328-4014-9269-\
+2c876c280362"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"simpsonRule", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"b", "-", "a"}], ")"}], "/", "3"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", "a", "]"}], "+", 
+      RowBox[{"f", "[", "b", "]"}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "+", "b"}], ")"}], "/", "2"}], "]"}]}]}], ")"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"x", "^", "2"}]}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "1", ",", "f1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8907806643767605`*^9, 3.8907806643840055`*^9}},
+ CellLabel->
+  "In[178]:=",ExpressionUUID->"524016aa-2804-45bd-bfdf-c14350ff0927"],
+
+Cell[BoxData[
+ FractionBox["31", "30"]], "Output",
+ CellChangeTimes->{3.8907806809093266`*^9, 3.8907807197719803`*^9},
+ CellLabel->
+  "Out[180]=",ExpressionUUID->"0070fdf3-3ccb-4a83-8241-0d7410e3207b"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["2", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Use", 
+    StyleBox[
+     RowBox[{" ", 
+      StyleBox[
+       StyleBox[
+        StyleBox[" ", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}]], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["Si", "ItemParagraph",
+        FontWeight->"Plain"], "mp", 
+       StyleBox[
+        StyleBox["s", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "on"}]], 
+     StyleBox[
+      StyleBox["'", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"]}], 
+    StyleBox[
+     StyleBox[
+      StyleBox["s", "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       StyleBox[
+        StyleBox[" ", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], " "}]], "rule", " ", "to", "  ", "approx", 
+    StyleBox[
+     StyleBox[
+      RowBox[{" ", 
+       StyleBox[" ", "ItemParagraph",
+        FontWeight->"Plain"]}]], "ItemParagraph",
+     FontWeight->"Plain"], 
+    RowBox[{
+     StyleBox["1", "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["/", "ItemParagraph",
+      FontWeight->"Plain"], 
+     RowBox[{
+      StyleBox["(", "ItemParagraph",
+       FontWeight->"Plain"], 
+      RowBox[{
+       StyleBox["1", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox["+", "ItemParagraph",
+        FontWeight->"Plain"], 
+       StyleBox["x", "ItemParagraph",
+        FontWeight->"Plain"]}], 
+      StyleBox[")", "ItemParagraph",
+       FontWeight->"Plain"]}]}]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "2"}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.890780691274089*^9, 
+  3.8907807044170203`*^9}},ExpressionUUID->"443eb0bb-cd60-475e-ad30-\
+173f90eea47e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"simpsonRule", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"b", "-", "a"}], ")"}], "/", "3"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", "a", "]"}], "+", 
+      RowBox[{"f", "[", "b", "]"}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "+", "b"}], ")"}], "/", "2"}], "]"}]}]}], ")"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "2", ",", "f1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.89078069783506*^9, 3.890780697842684*^9}},
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"2e91d8af-d3e1-4952-9d4e-9c079aa0c141"],
+
+Cell[BoxData[
+ FractionBox["14", "9"]], "Output",
+ CellChangeTimes->{3.8907807223059535`*^9},
+ CellLabel->
+  "Out[183]=",ExpressionUUID->"373ba871-1198-4648-9a38-5a5167b0574f"]
+}, Open  ]],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   StyleBox[
+    StyleBox[
+     StyleBox["Example", "ItemParagraph"], "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox[
+    StyleBox[" ", "ItemParagraph",
+     FontSize->14,
+     FontWeight->"Plain"],
+    FontSize->14], 
+   StyleBox["3", "ItemParagraph",
+    FontSize->14,
+    FontWeight->"Plain"]}], "ItemParagraph",
+  FontWeight->"Plain"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Use", 
+     StyleBox[
+      RowBox[{" ", 
+       StyleBox[
+        StyleBox[
+         StyleBox[" ", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"]}]], 
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        StyleBox["Si", "ItemParagraph",
+         FontWeight->"Plain"], "mp", 
+        StyleBox[
+         StyleBox["s", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "on"}]], 
+      StyleBox[
+       StyleBox["'", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}], 
+     StyleBox[
+      StyleBox[
+       StyleBox["s", "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox[
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox[" ", "ItemParagraph",
+          FontWeight->"Plain"], "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], " "}]], "rule", " ", "to", "  ", "approx", 
+     StyleBox[
+      StyleBox[
+       RowBox[{" ", 
+        StyleBox[" ", "ItemParagraph",
+         FontWeight->"Plain"]}]], "ItemParagraph",
+      FontWeight->"Plain"], 
+     StyleBox["1", "ItemParagraph",
+      FontWeight->"Plain"]}], 
+    StyleBox["-", "ItemParagraph",
+     FontWeight->"Plain"], 
+    StyleBox[
+     StyleBox["x", "ItemParagraph",
+      FontWeight->"Plain"], "ItemParagraph",
+     FontWeight->"Plain"]}], 
+   StyleBox[
+    StyleBox[",", "ItemParagraph",
+     FontWeight->"Plain"], "ItemParagraph",
+    FontWeight->"Plain"], " ", 
+   RowBox[{"over", " ", "limit", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", 
+      StyleBox[
+       StyleBox[
+        StyleBox["1", "ItemParagraph",
+         FontWeight->"Plain"], "ItemParagraph",
+        FontWeight->"Plain"], "ItemParagraph",
+       FontWeight->"Plain"]}], ")"}]}]}], "ItemParagraph",
+  FontWeight->"Plain"]}], "Input",
+ CellChangeTimes->{{3.8907807335075006`*^9, 
+  3.8907807508838463`*^9}},ExpressionUUID->"293e326b-7d9e-4724-ac27-\
+034f2c32b6b3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"simpsonRule", "[", 
+    RowBox[{"a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"b", "-", "a"}], ")"}], "/", "3"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"f", "[", "a", "]"}], "+", 
+      RowBox[{"f", "[", "b", "]"}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "+", "b"}], ")"}], "/", "2"}], "]"}]}]}], ")"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f1", "[", "x_", "]"}], ":=", 
+   RowBox[{"1", "-", "x"}]}], ";"}], "\n", 
+ RowBox[{"simpsonRule", "[", 
+  RowBox[{"0", ",", "1", ",", "f1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.890780756560604*^9, 3.8907807565666003`*^9}},
+ CellLabel->
+  "In[184]:=",ExpressionUUID->"f08cac89-3157-47b5-a2c4-0cfb76310f50"],
+
+Cell[BoxData[
+ FractionBox["2", "3"]], "Output",
+ CellChangeTimes->{3.8907807580112114`*^9},
+ CellLabel->
+  "Out[186]=",ExpressionUUID->"4a15e509-f3ca-45fc-98f0-47f832dd25df"]
+}, Open  ]]
+},
+WindowSize->{638, 700},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 402, 11, 190, "Input",ExpressionUUID->"5391f8f9-4846-4553-9a35-b13bf6ab26f0"],
+Cell[963, 33, 231, 5, 37, "Input",ExpressionUUID->"7677d861-7683-4eb2-9d54-f73c109ad53e"],
+Cell[1197, 40, 2190, 72, 57, "Input",ExpressionUUID->"2d3a20c1-3f7c-4674-93ea-53bbcf99ec13"],
+Cell[CellGroupData[{
+Cell[3412, 116, 840, 26, 67, "Input",ExpressionUUID->"ab00575e-ce40-46b4-9ddf-1f081b51a7a1"],
+Cell[4255, 144, 171, 3, 32, "Output",ExpressionUUID->"33d243ef-ee06-483b-9b38-821e0914d7ff"]
+}, Open  ]],
+Cell[4441, 150, 1497, 49, 57, "Input",ExpressionUUID->"3b904d91-7037-468b-8679-ad86b651a915"],
+Cell[CellGroupData[{
+Cell[5963, 203, 866, 27, 67, "Input",ExpressionUUID->"3a769a17-df2b-49d0-864a-cbe733c9ef51"],
+Cell[6832, 232, 172, 3, 32, "Output",ExpressionUUID->"24bc3d93-b28b-462f-bcd9-1c21f4b8346a"]
+}, Open  ]],
+Cell[7019, 238, 2286, 73, 57, "Input",ExpressionUUID->"6b35b67b-34aa-452a-bd76-74e56aa32156"],
+Cell[CellGroupData[{
+Cell[9330, 315, 1426, 45, 67, "Input",ExpressionUUID->"e826ad8c-3390-4d5e-816f-c7c08266b17b"],
+Cell[10759, 362, 171, 3, 32, "Output",ExpressionUUID->"471e8600-8c98-43b7-adca-0569514f4688"]
+}, Open  ]],
+Cell[10945, 368, 303, 8, 37, "Input",ExpressionUUID->"d954affa-bbf5-4572-8f94-f527cc71c8af"],
+Cell[11251, 378, 2621, 88, 57, "Input",ExpressionUUID->"afbda1ab-f328-4014-9269-2c876c280362"],
+Cell[CellGroupData[{
+Cell[13897, 470, 947, 30, 67, "Input",ExpressionUUID->"524016aa-2804-45bd-bfdf-c14350ff0927"],
+Cell[14847, 502, 201, 4, 55, "Output",ExpressionUUID->"0070fdf3-3ccb-4a83-8241-0d7410e3207b"]
+}, Open  ]],
+Cell[15063, 509, 2655, 89, 57, "Input",ExpressionUUID->"443eb0bb-cd60-475e-ad30-173f90eea47e"],
+Cell[CellGroupData[{
+Cell[17743, 602, 915, 29, 67, "Input",ExpressionUUID->"2e91d8af-d3e1-4952-9d4e-9c079aa0c141"],
+Cell[18661, 633, 176, 4, 55, "Output",ExpressionUUID->"373ba871-1198-4648-9a38-5a5167b0574f"]
+}, Open  ]],
+Cell[18852, 640, 2637, 87, 57, "Input",ExpressionUUID->"293e326b-7d9e-4724-ac27-034f2c32b6b3"],
+Cell[CellGroupData[{
+Cell[21514, 731, 867, 27, 67, "Input",ExpressionUUID->"f08cac89-3157-47b5-a2c4-0cfb76310f50"],
+Cell[22384, 760, 175, 4, 55, "Output",ExpressionUUID->"4a15e509-f3ca-45fc-98f0-47f832dd25df"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
