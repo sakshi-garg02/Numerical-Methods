@@ -1,0 +1,301 @@
+Notebook[{Cell[
+TextData[{StyleBox[StyleBox[StyleBox["Practical",FontSlant -> Italic],
+FontWeight -> Bold],FontSize -> 36],StyleBox[StyleBox[StyleBox[" ",FontSlant -> Italic],
+FontWeight -> Bold],FontSize -> 36],StyleBox[StyleBox[StyleBox["8",FontSlant -> Italic],
+FontWeight -> Bold],FontSize -> 36],StyleBox[StyleBox[StyleBox[":",FontSlant -> Italic],
+FontWeight -> Bold],FontSize -> 36],"\n",StyleBox[StyleBox[StyleBox["Euler's",FontSlant -> Italic],
+FontWeight -> Bold],FontSize -> 36],StyleBox[RowBox[{StyleBox[StyleBox[StyleBox[" ",
+FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[StyleBox[StyleBox[
+" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36]}]],StyleBox[StyleBox[
+StyleBox["methods",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+RowBox[{StyleBox[StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36]}]],StyleBox[
+StyleBox[StyleBox["for",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["solving",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["first",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["order",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["initial",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["value",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["problems",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["of",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox[" ",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36],StyleBox[
+StyleBox[StyleBox["ODE",FontSlant -> Italic],FontWeight -> Bold],FontSize -> 36]}],
+"Text",ExpressionUUID -> "0057ec87-2b50-4917-85c8-a5cfb904115d"],Cell[
+TextData[{"\n",StyleBox[
+"Ques1",FontSize -> 18],StyleBox[":",FontSize -> 18],StyleBox["Ques1",FontSize -> 18],StyleBox[
+".",FontSize -> 18],StyleBox["Use",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"Euler\[CloseCurlyQuote]s",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"method",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["to",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["approximate",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"the",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["solution",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["to",FontSize -> 18],"\n",StyleBox["x",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["'",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["x",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["-",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"t",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["^",FontSize -> 18],StyleBox[
+" ",FontSize -> 18]}]],StyleBox["2",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",
+FontSize -> 18],StyleBox["+",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"1",FontSize -> 18],StyleBox[RowBox[{StyleBox[",",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"0",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["\[LessEqual]",
+FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["t",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["\[LessEqual]",FontSize -> 18],StyleBox[
+" ",FontSize -> 18]}]],StyleBox["2",FontSize -> 18],StyleBox[RowBox[{StyleBox[",",
+FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["x",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["(",FontSize -> 18]}]],StyleBox["0",
+FontSize -> 18],StyleBox[RowBox[{StyleBox[")",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["0",FontSize -> 18],StyleBox[
+".",FontSize -> 18],StyleBox["5",FontSize -> 18],StyleBox[",",FontSize -> 18],"\n",StyleBox[
+"at",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["t",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox["2",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"using",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["10",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["discrete",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"points",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["at",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["equal",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"spaces",FontSize -> 18],StyleBox[".",FontSize -> 18]}],"Text",ExpressionUUID -> "e4c3462b-7dd1-43af-a56d-9b52c3c7e203"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[{"a0_",","," ","b0_",","," ","n_",","," ","f_",","," ","alpha_"}]," ","]"}]," ",":=",RowBox[
+{"Module","[","\n",RowBox[{RowBox[{"{",RowBox[{"a",","," ","b",","," ","h",","," ","ti",","," ","wi",","," ","outputDetails"}]," ","}"}],",","\n",RowBox[
+{RowBox[{"a"," ","="," ",RowBox[{"N","[","a0","]"}]}],";","\n",RowBox[{"b"," ","="," ",RowBox[
+{"N","[","b0","]"}]}],";","\n",RowBox[{"h"," ","="," ",RowBox[{RowBox[{"(",RowBox[
+{"b"," ","-"," ","a"}],")"}]," ","/"," ","n"}]}],";","\n",RowBox[{"ti"," ","="," ",RowBox[
+{"Table","[",RowBox[{RowBox[{"a"," ","+"," ",RowBox[{RowBox[{"(",RowBox[{"j"," ","-"," ","1"}],")"}]," ","h"}]}],","," ",RowBox[
+{"{",RowBox[{"j",","," ","1",","," ",RowBox[{"n"," ","+"," ","1"}]}],"}"}]}],"]"}]}],";","\n",RowBox[
+{"wi"," ","="," ",RowBox[{"Table","[",RowBox[{"0",","," ",RowBox[{"{",RowBox[{"n"," ","+"," ","1"}],"}"}]}],"]"}]}],";","\n",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]," ","="," ","alpha"}]," ",";","\n",RowBox[
+{"outputDetails"," ","="," ",RowBox[{"{",RowBox[{"{",RowBox[{"0",","," ",RowBox[{"ti","[",RowBox[
+{"[","1","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]}],"}"}],"}"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","\[LessEqual]"," ","n"}],","," ",RowBox[
+{"i","++"}],",","\n",RowBox[{RowBox[{RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}]," ","="," ",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","i","]"}],"]"}]," ","+"," ",RowBox[{"h"," ",RowBox[
+{"f","[",RowBox[{RowBox[{"ti","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[
+{"[","i","]"}],"]"}]}],"]"}]}]}]}],";","\n",RowBox[{"outputDetails"," ","="," ",RowBox[
+{"Append","[",RowBox[{"outputDetails"," ",","," ",RowBox[{"{",RowBox[{"i",","," ",RowBox[
+{"N","[",RowBox[{"ti","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}],","," ",RowBox[
+{"N","[",RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}]}],"}"}]}],"]"}]}],";"}]}],"\n","]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"NumberForm"," ","[",RowBox[{RowBox[{"TableForm"," ","[",RowBox[
+{"outputDetails"," ",",","\n",RowBox[{"TableHeadings"," ","\[RightArrow]"," ",RowBox[
+{"{",RowBox[{"None",","," ",RowBox[{"{",RowBox[{"\"i\"",","," ","\"ti\"",","," ","\"wi\""}],"}"}]}],"}"}]}]}],"]"}],","," ","8"}],"]"}],"]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"\"Number Of subinterval used=\"",","," ","n"}],"]"}],";"}]}],"\n","]"}]}],";"}],"\n",RowBox[
+{RowBox[{RowBox[{"f1","[",RowBox[{"t_",","," ","x_"}],"]"}]," ",":="," ",RowBox[{"x"," ","-"," ",RowBox[
+{"t"," ","^"," ","2"}]," ","+"," ","1"}]}],";"}]}],"\n",RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[
+{"0",","," ","2",","," ","10",","," ","f1",","," ","0.5"}],"]"}],"\n"}]}],"Input",
+CellLabel -> "In[88]:= ",ExpressionUUID -> "13b9e909-29e5-413c-9d39-aac1e7b60a2f"],Cell[
+BoxData[
+TagBox[TagBox[GridBox[{{InterpretationBox[StyleBox["\"0\"",ShowStringCharacters -> False],
+0,Editable -> False],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.5\"",ShowStringCharacters -> False],
+0.5`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"1\"",ShowStringCharacters -> False],
+1,Editable -> False],InterpretationBox[StyleBox["\"0.2\"",ShowStringCharacters -> False],
+0.2`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.8\"",ShowStringCharacters -> False],
+0.8`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False],InterpretationBox[StyleBox["\"0.4\"",ShowStringCharacters -> False],
+0.4`,AutoDelete -> True],InterpretationBox[StyleBox["\"1.152\"",ShowStringCharacters -> False],
+1.1520000000000001`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"3\"",ShowStringCharacters -> False],
+3,Editable -> False],InterpretationBox[StyleBox["\"0.6\"",ShowStringCharacters -> False],
+0.6000000000000001`,AutoDelete -> True],InterpretationBox[StyleBox["\"1.5504\"",ShowStringCharacters -> False],
+1.5504000000000002`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False],InterpretationBox[StyleBox["\"0.8\"",ShowStringCharacters -> False],
+0.8`,AutoDelete -> True],InterpretationBox[StyleBox["\"1.98848\"",ShowStringCharacters -> False],
+1.9884800000000002`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"5\"",ShowStringCharacters -> False],
+5,Editable -> False],InterpretationBox[StyleBox["\"1.\"",ShowStringCharacters -> False],
+1.`,AutoDelete -> True],InterpretationBox[StyleBox["\"2.458176\"",ShowStringCharacters -> False],
+2.4581760000000004`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"6\"",ShowStringCharacters -> False],
+6,Editable -> False],InterpretationBox[StyleBox["\"1.2\"",ShowStringCharacters -> False],
+1.2000000000000002`,AutoDelete -> True],InterpretationBox[StyleBox["\"2.9498112\"",
+ShowStringCharacters -> False],2.9498112000000005`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"7\"",ShowStringCharacters -> False],7,Editable -> False],InterpretationBox[
+StyleBox["\"1.4\"",ShowStringCharacters -> False],1.4000000000000001`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"3.4517734\"",ShowStringCharacters -> False],3.4517734400000006`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"8\"",ShowStringCharacters -> False],8,Editable -> False],InterpretationBox[
+StyleBox["\"1.6\"",ShowStringCharacters -> False],1.6`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"3.9501281\"",ShowStringCharacters -> False],3.9501281280000007`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"9\"",ShowStringCharacters -> False],9,Editable -> False],InterpretationBox[
+StyleBox["\"1.8\"",ShowStringCharacters -> False],1.8`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"4.4281538\"",ShowStringCharacters -> False],4.428153753600001`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"10\"",ShowStringCharacters -> False],10,Editable -> False],InterpretationBox[
+StyleBox["\"2.\"",ShowStringCharacters -> False],2.`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"4.8657845\"",ShowStringCharacters -> False],4.865784504320001`,AutoDelete -> True]}},
+RowSpacings -> 1,ColumnSpacings -> 3,RowAlignments -> Baseline,ColumnAlignments -> Left],
+Function[BoxForm`e$,TableForm[BoxForm`e$,RightArrow[TableHeadings,{None,{"i","ti","wi"}}]]]],
+Function[NumberForm[Slot[1],8]]],StandardForm],"Print",ExpressionUUID -> "4d2c2874-56aa-484e-93a6-bcc2e18156e4"],Cell[
+BoxData[
+InterpretationBox[RowBox[{"\"Number Of subinterval used=\"","\[InvisibleSpace]","10"}],
+SequenceForm["Number Of subinterval used=",10],Editable -> False],StandardForm],"Print",
+ExpressionUUID -> "7083c834-557e-477d-9db8-81cfd66f9725"]},Open],ExpressionUUID -> "51d66c3a-745f-4918-9058-e11556ee7beb"],Cell[
+TextData[
+{"\n","\n",StyleBox["Ques2",FontSize -> 18],StyleBox[":",FontSize -> 18],StyleBox[
+"Use",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["Euler\[CloseCurlyQuote]s",
+FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["method",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["to",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"approximate",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["the",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["solution",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"to",FontSize -> 18],"\n",StyleBox["x",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"'",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["=",FontSize -> 18],StyleBox[
+" ",FontSize -> 18]}]],StyleBox["x",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",
+FontSize -> 18],StyleBox["+",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"t",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["/",FontSize -> 18]}]],StyleBox[
+"2",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox[",",FontSize -> 18],StyleBox[
+" ",FontSize -> 18]}]],StyleBox["0",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",
+FontSize -> 18],StyleBox["\[LessEqual]",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"t",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["\[LessEqual]",
+FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["2",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[",",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["x",
+FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["(",FontSize -> 18]}]],StyleBox[
+"0",FontSize -> 18],StyleBox[RowBox[{StyleBox[")",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["0",FontSize -> 18],StyleBox[
+".",FontSize -> 18],StyleBox["5",FontSize -> 18],StyleBox[",",FontSize -> 18],"\n",StyleBox[
+"at",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["t",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox["2",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"using",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["5",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["discrete",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"points",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["at",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["equal",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"spaces",FontSize -> 18],StyleBox[".",FontSize -> 18]}],"Text",ExpressionUUID -> "1a95bdfb-924a-4b98-9bbc-e38dcb83bef5"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[{"a0_",","," ","b0_",","," ","n_",","," ","f_",","," ","alpha_"}]," ","]"}]," ",":=",RowBox[
+{"Module","[","\n",RowBox[{RowBox[{"{",RowBox[{"a",","," ","b",","," ","h",","," ","ti",","," ","wi",","," ","outputDetails"}]," ","}"}],",","\n",RowBox[
+{RowBox[{"a"," ","="," ",RowBox[{"N","[","a0","]"}]}],";","\n",RowBox[{"b"," ","="," ",RowBox[
+{"N","[","b0","]"}]}],";","\n",RowBox[{"h"," ","="," ",RowBox[{RowBox[{"(",RowBox[
+{"b"," ","-"," ","a"}],")"}]," ","/"," ","n"}]}],";","\n",RowBox[{"ti"," ","="," ",RowBox[
+{"Table","[",RowBox[{RowBox[{"a"," ","+"," ",RowBox[{RowBox[{"(",RowBox[{"j"," ","-"," ","1"}],")"}]," ","h"}]}],","," ",RowBox[
+{"{",RowBox[{"j",","," ","1",","," ",RowBox[{"n"," ","+"," ","1"}]}],"}"}]}],"]"}]}],";","\n",RowBox[
+{"wi"," ","="," ",RowBox[{"Table","[",RowBox[{"0",","," ",RowBox[{"{",RowBox[{"n"," ","+"," ","1"}],"}"}]}],"]"}]}],";","\n",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]," ","="," ","alpha"}]," ",";","\n",RowBox[
+{"outputDetails"," ","="," ",RowBox[{"{",RowBox[{"{",RowBox[{"0",","," ",RowBox[{"ti","[",RowBox[
+{"[","1","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]}],"}"}],"}"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","\[LessEqual]"," ","n"}],","," ",RowBox[
+{"i","++"}],",","\n",RowBox[{RowBox[{RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}]," ","="," ",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","i","]"}],"]"}]," ","+"," ",RowBox[{"h"," ",RowBox[
+{"f","[",RowBox[{RowBox[{"ti","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[
+{"[","i","]"}],"]"}]}],"]"}]}]}]}],";","\n",RowBox[{"outputDetails"," ","="," ",RowBox[
+{"Append","[",RowBox[{"outputDetails"," ",","," ",RowBox[{"{",RowBox[{"i",","," ",RowBox[
+{"N","[",RowBox[{"ti","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}],","," ",RowBox[
+{"N","[",RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}]}],"}"}]}],"]"}]}],";"}]}],"\n","]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"NumberForm"," ","[",RowBox[{RowBox[{"TableForm"," ","[",RowBox[
+{"outputDetails"," ",",","\n",RowBox[{"TableHeadings"," ","\[RightArrow]"," ",RowBox[
+{"{",RowBox[{"None",","," ",RowBox[{"{",RowBox[{"\"i\"",","," ","\"ti\"",","," ","\"wi\""}],"}"}]}],"}"}]}]}],"]"}],","," ","8"}],"]"}],"]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"\"Number Of subinterval used=\"",","," ","n"}],"]"}],";"}]}],"\n","]"}]}],";"}],"\n",RowBox[
+{RowBox[{RowBox[{"f1","[",RowBox[{"t_",","," ","x_"}],"]"}]," ",":="," ",RowBox[{"x","+",RowBox[
+{"t","/","2"}]}]}]," ",";"}]}],"\n",RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[
+{"0",","," ","2",","," ","5",","," ","f1",","," ","0.5"}],"]"}],"\n"}]}],"Input",
+CellLabel -> "In[112]:= ",ExpressionUUID -> "57df0fd5-2367-4dd2-8a26-a5d9022a5173"],Cell[
+BoxData[
+TagBox[TagBox[GridBox[{{InterpretationBox[StyleBox["\"0\"",ShowStringCharacters -> False],
+0,Editable -> False],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.5\"",ShowStringCharacters -> False],
+0.5`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"1\"",ShowStringCharacters -> False],
+1,Editable -> False],InterpretationBox[StyleBox["\"0.4\"",ShowStringCharacters -> False],
+0.4`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.7\"",ShowStringCharacters -> False],
+0.7`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False],InterpretationBox[StyleBox["\"0.8\"",ShowStringCharacters -> False],
+0.8`,AutoDelete -> True],InterpretationBox[StyleBox["\"1.06\"",ShowStringCharacters -> False],
+1.06`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"3\"",ShowStringCharacters -> False],
+3,Editable -> False],InterpretationBox[StyleBox["\"1.2\"",ShowStringCharacters -> False],
+1.2000000000000002`,AutoDelete -> True],InterpretationBox[StyleBox["\"1.644\"",ShowStringCharacters -> False],
+1.6440000000000001`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False],InterpretationBox[StyleBox["\"1.6\"",ShowStringCharacters -> False],
+1.6`,AutoDelete -> True],InterpretationBox[StyleBox["\"2.5416\"",ShowStringCharacters -> False],
+2.5416000000000003`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"5\"",ShowStringCharacters -> False],
+5,Editable -> False],InterpretationBox[StyleBox["\"2.\"",ShowStringCharacters -> False],
+2.`,AutoDelete -> True],InterpretationBox[StyleBox["\"3.87824\"",ShowStringCharacters -> False],
+3.878240000000001`,AutoDelete -> True]}},RowSpacings -> 1,ColumnSpacings -> 3,RowAlignments -> Baseline,
+ColumnAlignments -> Left],Function[BoxForm`e$,TableForm[BoxForm`e$,RightArrow[TableHeadings,
+{None,{"i","ti","wi"}}]]]],Function[NumberForm[Slot[1],8]]],StandardForm],"Print",
+ExpressionUUID -> "7927d136-b15a-4f41-b138-f1fcd35cb4ac"],Cell[
+BoxData[InterpretationBox[
+RowBox[{"\"Number Of subinterval used=\"","\[InvisibleSpace]","5"}],SequenceForm[
+"Number Of subinterval used=",5],Editable -> False],StandardForm],"Print",ExpressionUUID -> "6f0c3657-ecf5-4a63-b60b-b6299d269239"]},
+Open],ExpressionUUID -> "063b9127-5c89-4370-834a-a3a346ca3efc"],Cell[
+TextData[{"\n","\n",StyleBox[
+"Ques3",FontSize -> 18],StyleBox[":",FontSize -> 18],StyleBox["Use",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["Euler\[CloseCurlyQuote]s",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["method",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"to",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["approximate",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["the",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"solution",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["to",FontSize -> 18],"\n",StyleBox[
+"x",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["'",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["=",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"t",FontSize -> 18],StyleBox["+",FontSize -> 18],StyleBox["x",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["^",FontSize -> 18]}]],StyleBox["2",
+FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox[",",FontSize -> 18],StyleBox[
+" ",FontSize -> 18]}]],StyleBox["0",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",
+FontSize -> 18],StyleBox["\[LessEqual]",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox[
+"t",FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["\[LessEqual]",
+FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["2",FontSize -> 18],StyleBox[
+RowBox[{StyleBox[",",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["x",
+FontSize -> 18],StyleBox[RowBox[{StyleBox[" ",FontSize -> 18],StyleBox["(",FontSize -> 18]}]],StyleBox[
+"0",FontSize -> 18],StyleBox[RowBox[{StyleBox[")",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox[" ",FontSize -> 18]}]],StyleBox["0",FontSize -> 18],StyleBox[
+".",FontSize -> 18],StyleBox["5",FontSize -> 18],StyleBox[",",FontSize -> 18],"\n",StyleBox[
+"at",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["t",FontSize -> 18],StyleBox[
+"=",FontSize -> 18],StyleBox["2",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"using",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["5",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["discrete",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"points",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox["at",FontSize -> 18],StyleBox[
+" ",FontSize -> 18],StyleBox["equal",FontSize -> 18],StyleBox[" ",FontSize -> 18],StyleBox[
+"spaces",FontSize -> 18],StyleBox[".",FontSize -> 18]}],"Text",ExpressionUUID -> "284aff67-a94d-4c1c-9e47-536820775a35"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[{"a0_",","," ","b0_",","," ","n_",","," ","f_",","," ","alpha_"}]," ","]"}]," ",":=",RowBox[
+{"Module","[","\n",RowBox[{RowBox[{"{",RowBox[{"a",","," ","b",","," ","h",","," ","ti",","," ","wi",","," ","outputDetails"}]," ","}"}],",","\n",RowBox[
+{RowBox[{"a"," ","="," ",RowBox[{"N","[","a0","]"}]}],";","\n",RowBox[{"b"," ","="," ",RowBox[
+{"N","[","b0","]"}]}],";","\n",RowBox[{"h"," ","="," ",RowBox[{RowBox[{"(",RowBox[
+{"b"," ","-"," ","a"}],")"}]," ","/"," ","n"}]}],";","\n",RowBox[{"ti"," ","="," ",RowBox[
+{"Table","[",RowBox[{RowBox[{"a"," ","+"," ",RowBox[{RowBox[{"(",RowBox[{"j"," ","-"," ","1"}],")"}]," ","h"}]}],","," ",RowBox[
+{"{",RowBox[{"j",","," ","1",","," ",RowBox[{"n"," ","+"," ","1"}]}],"}"}]}],"]"}]}],";","\n",RowBox[
+{"wi"," ","="," ",RowBox[{"Table","[",RowBox[{"0",","," ",RowBox[{"{",RowBox[{"n"," ","+"," ","1"}],"}"}]}],"]"}]}],";","\n",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]," ","="," ","alpha"}]," ",";","\n",RowBox[
+{"outputDetails"," ","="," ",RowBox[{"{",RowBox[{"{",RowBox[{"0",","," ",RowBox[{"ti","[",RowBox[
+{"[","1","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[{"[","1","]"}],"]"}]}],"}"}],"}"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","\[LessEqual]"," ","n"}],","," ",RowBox[
+{"i","++"}],",","\n",RowBox[{RowBox[{RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}]," ","="," ",RowBox[
+{RowBox[{"wi","[",RowBox[{"[","i","]"}],"]"}]," ","+"," ",RowBox[{"h"," ",RowBox[
+{"f","[",RowBox[{RowBox[{"ti","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[{"wi","[",RowBox[
+{"[","i","]"}],"]"}]}],"]"}]}]}]}],";","\n",RowBox[{"outputDetails"," ","="," ",RowBox[
+{"Append","[",RowBox[{"outputDetails"," ",","," ",RowBox[{"{",RowBox[{"i",","," ",RowBox[
+{"N","[",RowBox[{"ti","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}],","," ",RowBox[
+{"N","[",RowBox[{"wi","[",RowBox[{"[",RowBox[{"i"," ","+"," ","1"}],"]"}],"]"}],"]"}]}],"}"}]}],"]"}]}],";"}]}],"\n","]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"NumberForm"," ","[",RowBox[{RowBox[{"TableForm"," ","[",RowBox[
+{"outputDetails"," ",",","\n",RowBox[{"TableHeadings"," ","\[RightArrow]"," ",RowBox[
+{"{",RowBox[{"None",","," ",RowBox[{"{",RowBox[{"\"i\"",","," ","\"ti\"",","," ","\"wi\""}],"}"}]}],"}"}]}]}],"]"}],","," ","8"}],"]"}],"]"}],";","\n",RowBox[
+{"Print","[",RowBox[{"\"Number Of subinterval used=\"",","," ","n"}],"]"}],";"}]}],"\n","]"}]}],";"}],"\n",RowBox[
+{RowBox[{RowBox[{"f1","[",RowBox[{"t_",","," ","x_"}],"]"}]," ",":="," ",RowBox[{"t","+",RowBox[
+{"x","^","2"}]}]}]," ",";"}]}],"\n",RowBox[{RowBox[{"eulerMethodN"," ","[",RowBox[
+{"0",","," ","2",","," ","5",","," ","f1",","," ","0.5"}],"]"}],"\n"}]}],"Input",
+ExpressionUUID -> "37c3054d-4be7-450a-a4c6-6cb475a86bc2"],Cell[
+BoxData[TagBox[TagBox[
+GridBox[{{InterpretationBox[StyleBox["\"0\"",ShowStringCharacters -> False],0,Editable -> False],InterpretationBox[
+StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"0.5\"",ShowStringCharacters -> False],0.5`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"1\"",ShowStringCharacters -> False],1,Editable -> False],InterpretationBox[
+StyleBox["\"0.4\"",ShowStringCharacters -> False],0.4`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"0.6\"",ShowStringCharacters -> False],0.6`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False],InterpretationBox[
+StyleBox["\"0.8\"",ShowStringCharacters -> False],0.8`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"0.904\"",ShowStringCharacters -> False],0.904`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"3\"",ShowStringCharacters -> False],3,Editable -> False],InterpretationBox[
+StyleBox["\"1.2\"",ShowStringCharacters -> False],1.2000000000000002`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"1.5508864\"",ShowStringCharacters -> False],1.5508864`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"4\"",ShowStringCharacters -> False],4,Editable -> False],InterpretationBox[
+StyleBox["\"1.6\"",ShowStringCharacters -> False],1.6`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"2.9929859\"",ShowStringCharacters -> False],2.9929858502819844`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"5\"",ShowStringCharacters -> False],5,Editable -> False],InterpretationBox[
+StyleBox["\"2.\"",ShowStringCharacters -> False],2.`,AutoDelete -> True],InterpretationBox[
+StyleBox["\"7.2161716\"",ShowStringCharacters -> False],7.216171570277254`,AutoDelete -> True]}},
+RowSpacings -> 1,ColumnSpacings -> 3,RowAlignments -> Baseline,ColumnAlignments -> Left],
+Function[BoxForm`e$,TableForm[BoxForm`e$,RightArrow[TableHeadings,{None,{"i","ti","wi"}}]]]],
+Function[NumberForm[Slot[1],8]]],StandardForm],"Print",ExpressionUUID -> "1e2f559f-ab7f-4cbc-8e79-54c048888efd"],Cell[
+BoxData[
+InterpretationBox[RowBox[{"\"Number Of subinterval used=\"","\[InvisibleSpace]","5"}],
+SequenceForm["Number Of subinterval used=",5],Editable -> False],StandardForm],"Print",
+ExpressionUUID -> "089ea217-9308-4997-b876-c035ae632e4b"]},Open],ExpressionUUID -> "c2ce068c-e9b9-4085-b69a-8db9958e27aa"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "13.2 for Wolfram Cloud 1.64.3 (March 13, 2023)"]
